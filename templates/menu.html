@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú Semanal Aleatorio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .menu-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .menu-section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .menu-section p {
+            color: #34495e;
+        }
+        .refresh-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Menú Semanal Aleatorio</h1>
+
+    <div class="menu-section">
+        <h2>Primeros Platos</h2>
+        <p><strong>Ensalada:</strong> {{ menu['Ensalada'] }}</p>
+        <p><strong>Crema o Sopa:</strong> {{ menu['Crema o Sopa'] }}</p>
+        <p><strong>Aperitivos:</strong> {{ menu['Aperitivos y Otros'] }}</p>
+    </div>
+
+    <div class="menu-section">
+        <h2>Segundos Platos</h2>
+        <p><strong>Verdura:</strong> {{ menu['Verdura'] }}</p>
+        <p><strong>Pescado:</strong> {{ menu['Pescado'] }}</p>
+        <p><strong>Cerdo:</strong> {{ menu['Cerdo'] }}</p>
+        <p><strong>Ternera:</strong> {{ menu['Ternera'] }}</p>
+    </div>
+
+    <a href="/" class="refresh-btn">Generar Nuevo Menú</a>
+</body>
+</html>
