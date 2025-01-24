@@ -1,28 +1,60 @@
 import os
+import logging
 from supabase import create_client, Client
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Security: Use environment variables for sensitive information
 SUPABASE_URL = os.getenv('SUPABASE_URL')
 SUPABASE_KEY = os.getenv('SUPABASE_KEY')
 
-# Validate configuration
-if not SUPABASE_URL or not SUPABASE_KEY:
-    raise ValueError("Supabase URL and Key must be set in environment variables")
+def initialize_supabase_client():
+    """
+    Initialize Supabase client with robust error handling
+    """
+    try:
+        # Validate configuration with more detailed logging
+        if not SUPABASE_URL:
+            logger.error("SUPABASE_URL is not set in environment variables")
+            raise ValueError("SUPABASE_URL must be set")
+        
+        if not SUPABASE_KEY:
+            logger.error("SUPABASE_KEY is not set in environment variables")
+            raise ValueError("SUPABASE_KEY must be set")
+        
+        # Initialize Supabase client with enhanced security
+        client = create_client(SUPABASE_URL, SUPABASE_KEY)
+        logger.info("Supabase client initialized successfully")
+        return client
+    except Exception as e:
+        logger.error(f"Failed to initialize Supabase client: {e}")
+        raise
 
-# Initialize Supabase client with enhanced security
-supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+# Initialize client at module level with error handling
+try:
+    supabase = initialize_supabase_client()
+except Exception as e:
+    logger.critical(f"Could not initialize Supabase client: {e}")
+    supabase = None
 
 def get_secure_connection():
     """
     Provides a secure Supabase connection with additional security checks
     """
+    if supabase is None:
+        raise RuntimeError("Supabase client not initialized")
+    
     try:
-        # Example of additional security validation
-        # You can add more custom checks here
+        # Additional connection validation can be added here
         return supabase
     except Exception as e:
-        # Implement secure logging
-        print(f"Secure connection error: {e}")
+        logger.error(f"Secure connection error: {e}")
         raise
 
 def create_secure_row_level_policy():
@@ -39,7 +71,6 @@ def create_secure_row_level_policy():
     # Apply the policy (you would need to execute this in Supabase SQL editor)
     return rls_policy
 
-# Recommended security practices
 def validate_user_input(input_data):
     """
     Sanitize and validate user inputs before database operations
