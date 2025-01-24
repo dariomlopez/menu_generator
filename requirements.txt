@@ -1,10 +1,2 @@
 flask==2.3.2
 gunicorn
-supabase==1.0.3
-python-dotenv==1.0.0
-cryptography==41.0.5
-bcrypt==4.0.1
-argon2-cffi==23.1.0
-pyotp==2.9.0  # For two-factor authentication
-email-validator==2.1.0  # For email validation
-bleach==6.1.0  # HTML sanitization

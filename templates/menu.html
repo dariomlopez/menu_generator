@@ -30,31 +30,16 @@
         .menu-section p {
             color: #34495e;
         }
-        .refresh-btn, .json-btn {
+        .refresh-btn {
             display: block;
-            width: 80%;
-            max-width: 300px;
+            width: 200px;
             margin: 20px auto;
-            padding: 15px 10px;
+            padding: 10px;
             background-color: #3498db;
             color: white;
             text-align: center;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 16px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.2s, background-color 0.2s;
-        }
-        .refresh-btn:hover {
-            transform: scale(1.05);
-            background-color: #2980b9;
-        }
-        @media (max-width: 600px) {
-            .refresh-btn {
-                width: 90%;
-                padding: 18px 12px;
-                font-size: 18px;
-            }
         }
     </style>
 </head>
@@ -77,7 +62,5 @@
     </div>
 
     <a href="/" class="refresh-btn">Generar Nuevo Menú</a>
-    <a href="/menu-json" class="json-btn">Ver Menú en JSON</a>
-    
 </body>
 </html>
