@@ -14,4 +14,22 @@ venv/
 
 # Misc
 .DS_Store
+
+# Supabase and Environment Secrets
+.env
+*.env
+.env.local
+supabase/.env
+
+# Sensitive Configuration
+config.json
+secrets.json
+
+# Logs
 *.log
+debug.log
+error.log
+
+# Temporary files
+*.tmp
+*.bak
