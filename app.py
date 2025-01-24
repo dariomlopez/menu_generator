@@ -71,6 +71,40 @@ def menu_json():
         app.logger.error(f"JSON menu generation error: {e}")
         return jsonify({"error": "No se pudo generar el menú"}), 500
 
+@app.route('/menu-texto')
+def menu_texto():
+    """
+    Endpoint to display menu in plain text format
+    """
+    try:
+        menu = get_random_dishes()
+        
+        # Create a plain text representation of the menu
+        menu_texto = "Menú Semanal:\n\n"
+        
+        # First dishes section
+        menu_texto += "Primeros Platos:\n"
+        menu_texto += f"- Ensalada: {menu['Ensalada']}\n"
+        menu_texto += f"- Crema o Sopa: {menu['Crema o Sopa']}\n"
+        menu_texto += f"- Aperitivos: {menu['Aperitivos y Otros']}\n\n"
+        
+        # Second dishes section
+        menu_texto += "Segundos Platos:\n"
+        menu_texto += f"- Verdura: {menu['Verdura']}\n"
+        menu_texto += f"- Pescado: {menu['Pescado']}\n"
+        menu_texto += f"- Cerdo: {menu['Cerdo']}\n"
+        menu_texto += f"- Ternera: {menu['Ternera']}\n"
+        
+        # Return as plain text
+        return app.response_class(
+            response=menu_texto, 
+            status=200, 
+            mimetype='text/plain; charset=utf-8'
+        )
+    except Exception as e:
+        app.logger.error(f"Plain text menu generation error: {e}")
+        return "Error al generar el menú en texto plano", 500
+
 if __name__ == '__main__':
     # Only for local development
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))

@@ -40,6 +40,80 @@
             text-align: center;
             text-decoration: none;
             border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        .refresh-btn:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+        
+        /* Media query for mobile responsiveness */
+        @media (max-width: 600px) {
+            .refresh-btn {
+                width: 90%; /* Make button wider on small screens */
+                max-width: 300px; /* Prevent it from becoming too wide */
+                padding: 15px 10px; /* Increase touch target size */
+                font-size: 16px; /* Slightly larger font */
+            }
+        }
+        
+        /* Styles for JSON button to match refresh button */
+        .json-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #3498db; /* Distinct color */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        .json-btn:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+        
+        /* Media query for JSON button */
+        @media (max-width: 600px) {
+            .json-btn {
+                width: 90%; /* Make button wider on small screens */
+                max-width: 300px; /* Prevent it from becoming too wide */
+                padding: 15px 10px; /* Increase touch target size */
+                font-size: 16px; /* Slightly larger font */
+            }
+        }
+        
+        /* Styles for the new texto-btn */
+        .texto-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        .texto-btn:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+        
+        /* Media query for texto button */
+        @media (max-width: 600px) {
+            .texto-btn {
+                width: 90%; /* Make button wider on small screens */
+                max-width: 300px; /* Prevent it from becoming too wide */
+                padding: 15px 10px; /* Increase touch target size */
+                font-size: 16px; /* Slightly larger font */
+            }
         }
     </style>
 </head>
@@ -62,5 +136,7 @@
     </div>
 
     <a href="/" class="refresh-btn">Generar Nuevo Menú</a>
+    <a href="/menu-json" class="json-btn">Ver Menú en JSON</a>
+    <a href="/menu-texto" class="texto-btn">Ver Menú en Texto Plano</a>
 </body>
 </html>
