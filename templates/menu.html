@@ -34,7 +34,7 @@
         .refresh-btn {
             display: block;
             width: 200px;
-            margin: 20px auto;
+            margin: 0 auto 1rem;
             padding: 10px;
             background-color: #3498db;
             color: white;
@@ -53,69 +53,30 @@
         @media (max-width: 600px) {
             .refresh-btn {
                 width: 90%; /* Make button wider on small screens */
-                max-width: 300px; /* Prevent it from becoming too wide */
-                padding: 15px 10px; /* Increase touch target size */
-                font-size: 16px; /* Slightly larger font */
+                max-width: 200px; /* Prevent it from becoming too wide */
+                padding: 15px; /* Increase touch target size */
+                font-size: 1rem; /* Slightly larger font */
             }
         }
         
-        /* Styles for JSON button to match refresh button */
-        .json-btn {
-            display: block;
-            width: 200px;
-            margin: 20px auto;
-            padding: 10px;
-            background-color: #3498db; /* Distinct color */
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        
-        .json-btn:hover {
-            background-color: #2980b9;
-            transform: scale(1.05);
-        }
-        
-        /* Media query for JSON button */
+        /* Media query for menu-section */
         @media (max-width: 600px) {
-            .json-btn {
-                width: 90%; /* Make button wider on small screens */
-                max-width: 300px; /* Prevent it from becoming too wide */
-                padding: 15px 10px; /* Increase touch target size */
-                font-size: 16px; /* Slightly larger font */
+            .menu-section {
+                /* padding: 0.75rem; */
+                margin: 0.75rem;
+            }
+
+            .menu-section h2 {
+                font-size: 1.3rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .menu-section p {
+                font-size: 1rem;
+                margin: 0.25rem 0;
             }
         }
         
-        /* Styles for the new texto-btn */
-        .texto-btn {
-            display: block;
-            width: 200px;
-            margin: 20px auto;
-            padding: 10px;
-            background-color: #3498db;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        
-        .texto-btn:hover {
-            background-color: #2980b9;
-            transform: scale(1.05);
-        }
-        
-        /* Media query for texto button */
-        @media (max-width: 600px) {
-            .texto-btn {
-                width: 90%; /* Make button wider on small screens */
-                max-width: 300px; /* Prevent it from becoming too wide */
-                padding: 15px 10px; /* Increase touch target size */
-                font-size: 16px; /* Slightly larger font */
-            }
-        }
     </style>
 </head>
 <body>
